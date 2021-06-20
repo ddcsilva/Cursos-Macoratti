@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ProjetoMvcEntity.Models.Cliente>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Lista de Clientes</h2>
+    <ul>
+        @foreach (var cliente in Model)
+        {
+            <li>@Html.ActionLink(cliente.Nome, "Detalhes", new { id = cliente.ClienteId }) </li>
+        }
+    </ul>
+    <hr />
+    @Html.ActionLink("Retornar para a lista de tipos", "Index", "TipoCliente")
+</body>
+</html>

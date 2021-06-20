@@ -1,0 +1,25 @@
+﻿@model ProjetoMvcEntity.Models.Cliente
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhes do Cliente</title>
+</head>
+<body>
+    <div>
+        <br />
+        <p>Código   : @Html.TextBoxFor(x => x.ClienteId, new { htmlAttributes = new { type = "number", @class = "form-control" } })</p>
+        <p>Nome     : @Html.TextBoxFor(x => x.Nome)</p>
+        <p>Email    : @Html.TextBoxFor(x => x.Email)</p>
+        <p>Telefone : @Html.TextBoxFor(x => x.Telefone)</p>
+        <p>Tipo     : @Html.TextBoxFor(x => x.TipoId)</p>
+        <p>
+            <input type="submit" value="Enviar" />
+        </p>
+    </div>
+    <hr />
+    @Html.ActionLink("Retornar para a lista", "Index", new { tipoId = Model.TipoId });
+</body>
+</html>
