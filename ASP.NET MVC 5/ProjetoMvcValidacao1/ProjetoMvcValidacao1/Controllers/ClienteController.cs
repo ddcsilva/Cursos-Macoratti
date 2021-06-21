@@ -18,6 +18,10 @@ namespace ProjetoMvcValidacao1.Controllers
             if (string.IsNullOrEmpty(cliente.Nome))
                 ModelState.AddModelError("Nome", "O nome é obrigatório");
 
+            // Validação da regra de negócio
+            if (cliente.Nome == cliente.Email)
+                ModelState.AddModelError("", "O nome não pode ser igual ao email");
+
             if (string.IsNullOrEmpty(cliente.Email))
                 ModelState.AddModelError("Email", "O email é obrigatório");
 
