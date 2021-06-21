@@ -14,28 +14,6 @@ namespace ProjetoMvcValidacao2.Controllers
         [HttpPost]
         public ActionResult Index(Cliente cliente)
         {
-            // Validação do lado do servidor
-            if (string.IsNullOrEmpty(cliente.Nome))
-                ModelState.AddModelError("Nome", "O nome é obrigatório");
-
-            if (string.IsNullOrEmpty(cliente.Email))
-                ModelState.AddModelError("Email", "O email é obrigatório");
-
-            if (string.IsNullOrEmpty(cliente.Telefone))
-                ModelState.AddModelError("Telefone", "O telefone é obrigatório");
-
-            if (cliente.Idade == 0)
-            {
-                ModelState.AddModelError("Idade", "A idade é obrigatória");
-            }
-            else
-            {
-                if (cliente.Idade <= 21)
-                {
-                    ModelState.AddModelError("Idade", "A idade informada tem que ser maior que 21 anos");
-                }
-            }
-
             // A validação falhou?
             if (!ModelState.IsValid)
             {
