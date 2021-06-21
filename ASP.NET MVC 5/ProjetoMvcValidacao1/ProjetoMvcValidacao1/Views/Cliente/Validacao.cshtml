@@ -1,0 +1,46 @@
+﻿@model ProjetoMvcValidacao1.Models.Cliente
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Validacao</title>
+</head>
+<body>
+    <h2>Dados enviados após Validação </h2>
+    <fieldset>
+        <legend>Dados do Cliente</legend>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Nome)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nome)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Email)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Telefone)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Idade)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Idade)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Retornar", "Index")
+    </p>
+</body>
+</html>
