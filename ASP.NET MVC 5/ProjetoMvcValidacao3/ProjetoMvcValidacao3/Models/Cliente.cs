@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ProjetoMvcValidacao3.Models
 {
@@ -13,6 +14,7 @@ namespace ProjetoMvcValidacao3.Models
 
         [Required(ErrorMessage = "O nome deve ser informado")]
         [EmailAddress(ErrorMessage = "Informe um email válido")]
+        [Remote("ValidaEmailDisponivel", "Cliente", ErrorMessage = "Email já cadastrado!")]
         public string Email { get; set; }
 
         [StringLength(10, MinimumLength = 6, ErrorMessage = "O nome deve ter no mínimo 6 caracteres e no máximo 10")]
