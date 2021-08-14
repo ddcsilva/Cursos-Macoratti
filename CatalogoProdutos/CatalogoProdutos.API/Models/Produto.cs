@@ -11,5 +11,11 @@ namespace CatalogoProdutos.API.Models
         public string ImagemUrl { get; set; }
         public float Estoque { get; set; }
         public DateTime DataCadastro { get; set; }
+
+        // Propriedade de Navegação
+
+        // Uma Produto está relacionado com uma Categoria
+        public Categoria Categoria { get; set; }
+        public int CategoriaId { get; set; }
     }
 }
