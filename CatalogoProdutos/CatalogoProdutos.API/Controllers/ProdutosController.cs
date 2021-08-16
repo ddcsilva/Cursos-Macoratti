@@ -36,7 +36,7 @@ namespace CatalogoProdutos.API.Controllers
         }
 
         // api/produtos/1
-        [HttpGet("{id}", Name = "ObterProduto")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
         public ActionResult<Produto> Get(int id)
         {
             try

@@ -49,7 +49,7 @@ namespace CatalogoProdutos.API.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "ObterCategoria")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
         public ActionResult<Categoria> Get(int id)
         {
             try
