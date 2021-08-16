@@ -21,6 +21,7 @@ namespace CatalogoProdutos.API.Controllers
             this.context = context;
         }
 
+        // api/produtos
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
@@ -34,6 +35,7 @@ namespace CatalogoProdutos.API.Controllers
             }
         }
 
+        // api/produtos/1
         [HttpGet("{id}", Name = "ObterProduto")]
         public ActionResult<Produto> Get(int id)
         {
@@ -52,6 +54,7 @@ namespace CatalogoProdutos.API.Controllers
             }
         }
 
+        // api/produtos
         [HttpPost]
         public ActionResult Post([FromBody] Produto produto)
         {

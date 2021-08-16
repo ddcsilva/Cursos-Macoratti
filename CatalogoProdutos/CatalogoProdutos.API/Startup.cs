@@ -45,14 +45,19 @@ namespace CatalogoProdutos.API
                 app.UseDeveloperExceptionPage();
             }
 
+            // Adiciona o middleware para redirecionar para https
             app.UseHttpsRedirection();
 
+            // Adiciona o middleware de roteamento
             app.UseRouting();
 
+            // Adiciona o middleware que habilita a autoriazação
             app.UseAuthorization();
 
+            // Adiciona o middleware que executa o endpoint do request atual
             app.UseEndpoints(endpoints =>
             {
+                // Adiciona os endpoints para as Actions dos controladores sem especificar rotas
                 endpoints.MapControllers();
             });
         }
