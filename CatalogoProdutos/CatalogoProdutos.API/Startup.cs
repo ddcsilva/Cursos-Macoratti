@@ -30,7 +30,11 @@ namespace CatalogoProdutos.API
             string mySqlConnectionString = Configuration.GetConnectionString("CatalogoProdutoDB");
 
             services.AddDbContext<DataContext>(options => options.UseMySql(mySqlConnectionString, ServerVersion.AutoDetect(mySqlConnectionString)));
-            services.AddControllers();
+
+            // Para evitar a referência cíclica, é necessário adicionar a biblioteca da Microsoft Newtonsoft.json e adaptar
+            services.AddControllers().AddNewtonsoftJson(options => {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
