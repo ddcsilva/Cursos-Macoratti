@@ -2,7 +2,7 @@
 
 namespace CleanArchMvc.Domain.Entities
 {
-    public sealed class Produto
+    public sealed class Produto : EntityBase
     {
         public Produto(string nome, string descricao, decimal preco, int quantidadeEstoque, string imagem)
         {
@@ -22,7 +22,6 @@ namespace CleanArchMvc.Domain.Entities
             CategoriaId = categoriaId;
         }
 
-        public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
         public decimal Preco { get; private set; }

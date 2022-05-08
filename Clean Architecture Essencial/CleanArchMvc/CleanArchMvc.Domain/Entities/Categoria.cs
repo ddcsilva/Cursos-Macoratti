@@ -2,7 +2,7 @@
 
 namespace CleanArchMvc.Domain.Entities
 {
-    public sealed class Categoria
+    public sealed class Categoria : EntityBase
     {
         public Categoria(string nome)
         {
@@ -21,7 +21,6 @@ namespace CleanArchMvc.Domain.Entities
             ValidarDominio(nome);
         }
 
-        public int Id { get; private set; }
         public string Nome { get; private set; }
 
         public ICollection<Produto> Produtos { get; set; }
