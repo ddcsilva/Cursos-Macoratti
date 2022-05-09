@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Application", "CleanArchMvc.Application\CleanArchMvc.Application.csproj", "{4A7BE0E7-1CCD-4573-B0BF-16EA1A93F249}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.Application", "CleanArchMvc.Application\CleanArchMvc.Application.csproj", "{4A7BE0E7-1CCD-4573-B0BF-16EA1A93F249}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Domain", "CleanArchMvc.Domain\CleanArchMvc.Domain.csproj", "{529BEF08-03DB-4E6B-B9A1-DCA685AB5FE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.Domain", "CleanArchMvc.Domain\CleanArchMvc.Domain.csproj", "{529BEF08-03DB-4E6B-B9A1-DCA685AB5FE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Infra.Data", "CleanArchMvc.Infra.Data\CleanArchMvc.Infra.Data.csproj", "{14A37053-EB85-4D8A-A7F7-B759BC33F279}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.Infra.Data", "CleanArchMvc.Infra.Data\CleanArchMvc.Infra.Data.csproj", "{14A37053-EB85-4D8A-A7F7-B759BC33F279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Infra.IoC", "CleanArchMvc.Infra.IoC\CleanArchMvc.Infra.IoC.csproj", "{9B54B785-31CA-47C0-8BC1-D783ECDA5699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.Infra.IoC", "CleanArchMvc.Infra.IoC\CleanArchMvc.Infra.IoC.csproj", "{9B54B785-31CA-47C0-8BC1-D783ECDA5699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.WebUI", "CleanArchMvc.WebUI\CleanArchMvc.WebUI.csproj", "{0DA9B2C0-93C2-438C-BBF3-CDB415639E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMvc.WebUI", "CleanArchMvc.WebUI\CleanArchMvc.WebUI.csproj", "{0DA9B2C0-93C2-438C-BBF3-CDB415639E6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Domain.Tests", "CleanArchMvc.Domain.Tests\CleanArchMvc.Domain.Tests.csproj", "{896B9277-D705-4E09-86DA-E4EF2D86323D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0DA9B2C0-93C2-438C-BBF3-CDB415639E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DA9B2C0-93C2-438C-BBF3-CDB415639E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DA9B2C0-93C2-438C-BBF3-CDB415639E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896B9277-D705-4E09-86DA-E4EF2D86323D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896B9277-D705-4E09-86DA-E4EF2D86323D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896B9277-D705-4E09-86DA-E4EF2D86323D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896B9277-D705-4E09-86DA-E4EF2D86323D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
