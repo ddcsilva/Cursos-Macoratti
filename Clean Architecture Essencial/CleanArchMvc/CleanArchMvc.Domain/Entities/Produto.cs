@@ -45,7 +45,7 @@ namespace CleanArchMvc.Domain.Entities
 
             DomainExceptionValidation.VerificaErro(quantidadeEstoque < 0, "Quantidade em Estoque inválida!");
 
-            DomainExceptionValidation.VerificaErro(imagem.Length > 250, "Imagem inválida! O caminho da imagem deve possuir no máximo 250 caracteres.");
+            DomainExceptionValidation.VerificaErro(imagem?.Length > 250, "Imagem inválida! O caminho da imagem deve possuir no máximo 250 caracteres.");
 
             Nome = nome;
             Descricao = descricao;
