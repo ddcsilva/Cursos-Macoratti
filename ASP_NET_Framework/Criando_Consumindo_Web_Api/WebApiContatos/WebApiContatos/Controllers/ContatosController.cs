@@ -90,7 +90,7 @@ namespace WebApiContatos.Controllers
             using (var context = new AppDbContext())
             {
                 contatos = context.Contatos.Include("Endereco").ToList()
-                    .Where(x => x.Nome.ToLower() == nome.ToLower())
+                    .Where(x => x.Nome.ToLower().Contains(nome.ToLower()))
                     .Select(c => new Contato()
                     {
                         ContatoId = c.ContatoId,
