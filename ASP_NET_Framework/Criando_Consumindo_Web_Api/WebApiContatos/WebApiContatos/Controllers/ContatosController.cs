@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using WebApiContatos.Models;
@@ -142,6 +143,82 @@ namespace WebApiContatos.Controllers
             }
 
             return Ok(contato);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(Contato contato)
+        {
+            if (!ModelState.IsValid || contato == null)
+            {
+                return BadRequest("Dados do contato inválidos");
+            }
+
+            using (var context = new AppDbContext())
+            {
+                var contatoSelecionado = context.Contatos.Where(c => c.ContatoId == contato.ContatoId).FirstOrDefault<Contato>();
+
+                if (contatoSelecionado != null)
+                {
+                    contatoSelecionado.Nome = contato.Nome;
+                    contatoSelecionado.Email = contato.Email;
+                    contatoSelecionado.Telefone = contato.Telefone;
+
+                    context.Entry(contatoSelecionado).State = EntityState.Modified;
+
+                    var enderecoSelecionado = context.Enderecos.Where(e =>
+                                                  e.EnderecoId == contatoSelecionado.Endereco.EnderecoId)
+                                                  .FirstOrDefault<Endereco>();
+                    if (enderecoSelecionado != null)
+                    {
+                        enderecoSelecionado.Local = contato.Endereco.Local;
+                        enderecoSelecionado.Cidade = contato.Endereco.Cidade;
+                        enderecoSelecionado.Estado = contato.Endereco.Estado;
+
+                        context.Entry(enderecoSelecionado).State = EntityState.Modified;
+                    }
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+            return Ok($"Contato {contato.Nome} atualizado com sucesso");
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Dados inválidos");
+            }
+
+            using (var context = new AppDbContext())
+            {
+                var contatoSelecionado = context.Contatos.Where(c => c.ContatoId == id).FirstOrDefault<Contato>();
+
+                if (contatoSelecionado != null)
+                {
+                    context.Entry(contatoSelecionado).State = EntityState.Deleted;
+                    var enderecoSelecionado = context.Enderecos.Where(e =>
+                                             e.EnderecoId == contatoSelecionado.EnderecoId)
+                                             .FirstOrDefault<Endereco>();
+                    if (enderecoSelecionado != null)
+                    {
+                        context.Entry(enderecoSelecionado).State = EntityState.Deleted;
+                    }
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok($"Contato {id} foi deletado com sucesso");
         }
     }
 }
