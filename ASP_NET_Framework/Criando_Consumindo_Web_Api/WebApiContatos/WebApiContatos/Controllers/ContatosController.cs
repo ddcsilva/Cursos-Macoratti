@@ -114,5 +114,34 @@ namespace WebApiContatos.Controllers
 
             return Ok(contatos);
         }
+
+        [HttpPost]
+        public IHttpActionResult PostNovoContato(ContatoEnderecoDTO contato)
+        {
+            if (!ModelState.IsValid || contato == null)
+            {
+                return BadRequest("Dados do contato inválidos.");
+            }
+
+            using (var context = new AppDbContext())
+            {
+                context.Contatos.Add(new Contato()
+                {
+                    Nome = contato.Nome,
+                    Email = contato.Email,
+                    Telefone = contato.Telefone,
+                    Endereco = new Endereco()
+                    {
+                        Local = contato.Local,
+                        Cidade = contato.Cidade,
+                        Estado = contato.Estado
+                    }
+                });
+
+                context.SaveChanges();
+            }
+
+            return Ok(contato);
+        }
     }
 }

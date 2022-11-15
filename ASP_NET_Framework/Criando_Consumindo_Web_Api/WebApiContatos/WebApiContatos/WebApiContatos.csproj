@@ -175,6 +175,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\Contato.cs" />
+    <Compile Include="Models\ContatoEnderecoDTO.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
