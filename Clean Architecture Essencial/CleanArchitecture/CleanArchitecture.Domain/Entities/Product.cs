@@ -1,4 +1,6 @@
-﻿namespace CleanArchitecture.Domain.Entities
+﻿using CleanArchitecture.Domain.Validation;
+
+namespace CleanArchitecture.Domain.Entities
 {
     public sealed class Product : BaseEntity
     {
