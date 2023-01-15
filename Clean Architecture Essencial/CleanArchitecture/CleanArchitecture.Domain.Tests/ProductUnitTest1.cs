@@ -22,8 +22,9 @@ namespace CleanArchitecture.Domain.Tests
             Action action = () => new Product(-1, "Product Name", "Product Description", 9.99m,
                 99, "product image");
 
-            action.Should().Throw<Validation.DomainExceptionValidation>()
-                .WithMessage("Invalid Id value.");
+            action.Should()
+                .Throw<Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid Id value");
         }
 
         [Fact]
@@ -31,8 +32,9 @@ namespace CleanArchitecture.Domain.Tests
         {
             Action action = () => new Product(1, "Pr", "Product Description", 9.99m, 99,
                 "product image");
-            action.Should().Throw<Validation.DomainExceptionValidation>()
-                 .WithMessage("Invalid name, too short, minimum 3 characters");
+            action.Should()
+                .Throw<Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid name, too short, minimum 3 characters");
         }
 
         [Fact]
@@ -43,21 +45,31 @@ namespace CleanArchitecture.Domain.Tests
 
             action.Should()
                 .Throw<Validation.DomainExceptionValidation>()
-                 .WithMessage("Invalid image name, too long, maximum 250 characters");
+                .WithMessage("Invalid image name, too long, maximum 250 characters");
         }
 
         [Fact]
         public void CreateProduct_WithNullImageName_NoDomainException()
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, null);
-            action.Should().NotThrow<Validation.DomainExceptionValidation>();
+            action.Should()
+                .NotThrow<Validation.DomainExceptionValidation>();
+        }
+
+        [Fact]
+        public void CreateProduct_WithNullImageName_NoNullReferenceException()
+        {
+            Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, null);
+            action.Should()
+                .NotThrow<NullReferenceException>();
         }
 
         [Fact]
         public void CreateProduct_WithEmptyImageName_NoDomainException()
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, "");
-            action.Should().NotThrow<Validation.DomainExceptionValidation>();
+            action.Should()
+                .NotThrow<Validation.DomainExceptionValidation>();
         }
 
         [Fact]
@@ -65,8 +77,9 @@ namespace CleanArchitecture.Domain.Tests
         {
             Action action = () => new Product(1, "Product Name", "Product Description", -9.99m,
                 99, "");
-            action.Should().Throw<Validation.DomainExceptionValidation>()
-                 .WithMessage("Invalid price value");
+            action.Should()
+                .Throw<Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid price value");
         }
 
         [Theory]
@@ -75,8 +88,10 @@ namespace CleanArchitecture.Domain.Tests
         {
             Action action = () => new Product(1, "Pro", "Product Description", 9.99m, value,
                 "product image");
-            action.Should().Throw<Validation.DomainExceptionValidation>()
-                   .WithMessage("Invalid stock value");
+            action.Should()
+                .Throw<Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid stock value");
         }
+
     }
 }
