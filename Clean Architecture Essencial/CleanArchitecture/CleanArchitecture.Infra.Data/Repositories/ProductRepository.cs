@@ -5,7 +5,7 @@ using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
 
-namespace CleanArchMvc.Infra.Data.Repositories
+namespace CleanArchitecture.Infra.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
